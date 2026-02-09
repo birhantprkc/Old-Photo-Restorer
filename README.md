@@ -75,7 +75,9 @@ weights/
 ├── app.py
 ├── requirements.txt
 ├── assets/
-│   └── example.png
+│   └── Example.png
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
