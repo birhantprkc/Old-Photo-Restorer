@@ -112,22 +112,6 @@ python scripts/smoke_test.py
 
 ---
 
-## 🤗 Hugging Face Spaces notes
-
-For a Gradio Space, keep `app.py` at the repository root. The app downloads GFPGAN weights on first run and stores them under a writable `weights/` directory. If persistent storage is available, `/data/weights` is preferred automatically.
-
-Recommended Space metadata:
-
-```yaml
-sdk: gradio
-sdk_version: 5.38.1
-app_file: app.py
-python_version: 3.11
-license: apache-2.0
-```
-
----
-
 ## 📌 Model weights
 
 Model weights are downloaded on first run and should **not** be committed.
