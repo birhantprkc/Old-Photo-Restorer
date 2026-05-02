@@ -11,10 +11,16 @@ venv/
 ENV/
 env/
 
-# Local weights / caches (do not commit)
+# Local weights / generated outputs
 weights/
 outputs/
 *.pth
+*.ckpt
+*.safetensors
+
+# Runtime temp files
+*.tmp
+*.log
 
 # OS / editors
 .DS_Store
