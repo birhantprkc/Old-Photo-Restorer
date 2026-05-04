@@ -71,6 +71,9 @@ def enhance_core(
             weight=strength,
         )
 
+    if output_bgr is None:
+        raise RuntimeError("GFPGAN did not return a restored full image. Keep paste_back enabled.")
+
     before_rgb = cv2.cvtColor(before_bgr, cv2.COLOR_BGR2RGB)
     after_rgb = cv2.cvtColor(output_bgr, cv2.COLOR_BGR2RGB)
     after_rgb = unsharp_mask_rgb(after_rgb, detail_boost)

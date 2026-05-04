@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.1.1
+
+- Made paste-back behavior internal to keep full-image restoration outputs stable.
+- Added an explicit guard for empty GFPGAN full-image outputs.
+- Expanded CI to install dependencies, lint with Ruff, compile source, and run the smoke test.
+- Added privacy and usage notes to the README.
+
 ## 1.1.0
 
 - Split the single large app file into a small package with clear modules.

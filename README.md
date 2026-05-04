@@ -25,7 +25,7 @@ It focuses on a simple workflow: upload an image, choose a restoration preset, c
 - 📦 Supports **single-image** and **batch** processing
 - 🗜️ Exports processed batch results as a ZIP file
 - 🧪 Includes lightweight diagnostics for image size and downscaling behavior
-- 🧹 Keeps generated weights and outputs out of Git history
+- 🧹 Keeps downloaded model weights and generated outputs out of Git history
 
 ---
 
@@ -69,7 +69,7 @@ python -m venv .venv
 source .venv/bin/activate
 
 python -m pip install --upgrade pip
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 
 python app.py
 ```
@@ -82,6 +82,9 @@ Open the local Gradio URL printed in the terminal.
 
 ```text
 .
+├── .github/
+│   └── workflows/
+│       └── ci.yml                 # GitHub Actions checks
 ├── app.py                         # Gradio entry point
 ├── old_photo_restorer/
 │   ├── config.py                  # App constants and runtime paths
@@ -95,6 +98,7 @@ Open the local Gradio URL printed in the terminal.
 │   └── Example.png
 ├── scripts/
 │   └── smoke_test.py
+├── CHANGELOG.md
 ├── requirements.txt
 ├── LICENSE
 └── README.md
@@ -102,11 +106,14 @@ Open the local Gradio URL printed in the terminal.
 
 ---
 
-## 🧪 Smoke test
+## 🧪 Local checks
 
 The smoke test checks repository structure and Python syntax without downloading model weights.
 
 ```bash
+python -m pip install ruff
+python -m ruff check .
+python -m compileall -q .
 python scripts/smoke_test.py
 ```
 
@@ -124,12 +131,22 @@ outputs/
 
 ---
 
+## 🔒 Privacy and usage notes
+
+Uploaded images are processed inside the running app session. The project does not intentionally store user uploads, but generated files may exist temporarily during the session for download/export.
+
+This app uses **GFPGAN** as a third-party pre-trained restoration model. Restoration quality is best-effort and depends on input image quality, face visibility, compression, blur, lighting, and occlusion.
+
+Do not use restored outputs for identity-critical, legal, medical, forensic, or other high-stakes decisions.
+
+---
+
 ## ⚠️ Limitations
 
 - This is a **best-effort restoration tool**, not a forensic image-reconstruction system.
-- Results depend on blur, compression, scratches, lighting, and face size.
+- Results depend on blur, compression, scratches, lighting, face size, and occlusion.
 - Very small or heavily occluded faces may produce artifacts.
-- It should not be used for identity-critical, legal, or medical decisions.
+- Not intended for high-stakes or identity-critical use.
 
 ---
 

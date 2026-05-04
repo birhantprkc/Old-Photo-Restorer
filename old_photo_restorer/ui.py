@@ -58,7 +58,7 @@ def build_demo() -> gr.Blocks:
 
                     with gr.Accordion("Options", open=False):
                         only_center_face = gr.Checkbox(value=False, label="Only center face")
-                        paste_back = gr.Checkbox(value=True, label="Paste back")
+                        paste_back = gr.State(value=True)
                         blend = gr.Slider(0.0, 1.0, value=0.45, step=0.05, label="Blend (original weight)")
                         detail_boost = gr.Slider(0.0, 1.0, value=0.20, step=0.05, label="Detail")
                         out_format = gr.Radio(["PNG", "JPG"], value="PNG", label="Format")

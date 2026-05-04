@@ -6,7 +6,7 @@ import os
 from pathlib import Path
 
 APP_TITLE = "Old Photo Restorer"
-APP_VERSION = "1.1.0"
+APP_VERSION = "1.1.1"
 
 MODEL_NAME = "GFPGANv1.3.pth"
 MODEL_URL = "https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.3.pth"
