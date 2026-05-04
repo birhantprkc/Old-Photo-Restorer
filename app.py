@@ -3,7 +3,6 @@
 from old_photo_restorer.config import IS_HF_SPACE
 from old_photo_restorer.ui import build_demo
 
-
 demo = build_demo()
 
 

@@ -25,7 +25,14 @@ from .image_ops import (
     save_output,
     unsharp_mask_rgb,
 )
-from .io_utils import file_size_mb, file_to_path, is_allowed_file, safe_remove, safe_rmtree, sanitize_stem
+from .io_utils import (
+    file_size_mb,
+    file_to_path,
+    is_allowed_file,
+    safe_remove,
+    safe_rmtree,
+    sanitize_stem,
+)
 from .model import get_restorer, restorer_lock
 
 
